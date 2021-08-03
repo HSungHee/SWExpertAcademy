@@ -30,8 +30,9 @@ public class Solution_D2_1954_한성희 {
 				c = c + d[turn][1];
 				
 				// 회전을 해야하는 경우
-				// 1. 달팽이가 범위를 벗어나는 경우
-				if(r<0 || r>=N || c<0 || c>=N) {	
+				// 1. 달팽이가 범위를 벗어나는 경우 
+				// 2. 이미 지나간 길을 만난 경우
+				if((r<0 || r>=N || c<0 || c>=N) || path[r][c]!=0) {	
 					r = r - d[turn][0];	// 다시 원 위치
 					c = c - d[turn][1];	
 					
@@ -40,18 +41,7 @@ public class Solution_D2_1954_한성희 {
 					r = r + d[turn][0];	// 방향 전환 후 전진
 					c = c + d[turn][1];
 				}
-				
-				// 2. 이미 지나간 길을 만난 경우
-				if(!(path[r][c]==0)) {
-					r = r - d[turn][0];	// 다시 원 위치
-					c = c - d[turn][1];	
-					
-					turn = (turn+1)%4;	// 방향 전환
-
-					r = r + d[turn][0];	// 방향 전환 후 전진
-					c = c + d[turn][1];
-				}	
-			}
+			}				
 			
 			// 출력
 			System.out.printf("#%d%n", t);
