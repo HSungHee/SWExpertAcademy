@@ -1,4 +1,4 @@
-package swed;
+package Solution;
 
 import java.util.Scanner;
 
