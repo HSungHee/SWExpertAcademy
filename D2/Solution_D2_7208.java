@@ -3,7 +3,7 @@ package swea;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution_D2_7208_한성희 {
+public class Solution_D2_7208 {
 	static int[][] map;		// 국가간 인접 관계 저장 2차원 배열
 	static int[] color;		// 초기에 국가별 할당된 색상 저장 배열
 	static int[] palette;	// 새로운 색상 저장 배열
