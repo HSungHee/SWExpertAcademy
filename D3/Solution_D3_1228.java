@@ -35,7 +35,6 @@ public class Solution_D3_1228 {
 				System.out.print(" " + list.pollFirst());
 			}
 			System.out.println();
-			list.clear();
 		}
 	}
 }
