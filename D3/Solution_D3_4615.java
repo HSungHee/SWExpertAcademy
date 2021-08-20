@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class Solution_D3_4615 {
    public static void main(String[] args) throws Exception {
-      System.setIn(new FileInputStream("res/swea_4615.txt"));
+//      System.setIn(new FileInputStream("res/swea_4615.txt"));
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
       
       // 상, 하, 좌, 우, 상좌, 상우, 하좌, 하우
@@ -37,23 +37,24 @@ public class Solution_D3_4615 {
             map[r][c] = color;      // 좌표에 입력 돌 색깔 지정
             
             int nr=0, nc=0; 
-            for(int j=0; j<8; j++) {
+            for(int j=0; j<8; j++) {	// 8방 탐색
                nr = r + d[j][0];
                nc = c + d[j][1];
                
-               boolean flag = false;
+               boolean flag = false;	// 바꿀 돌이 사이에 있는지 체크
                while(true) {
-            	   if(nr<0 || nr>=N || nc<0 || nc>=N) break;
-            	   if(map[nr][nc]==0) break;
-            	   if(map[nr][nc]==color) {
-            		   flag = true;
+            	   if(nr<0 || nr>=N || nc<0 || nc>=N) break;	// 경계 밖에 나가면 탈출
+            	   if(map[nr][nc]==0) break;					// 0을 만나면 탈출
+            	   if(map[nr][nc]==color) {						// 현재 놓은 돌과 같은 색을 만나면
+            		   flag = true;		// flag 체크후 탈출
             		   break;
             	   }
+            	   // 위의 조건으로 탈출하지 않았다면 현재 방향으로 직진
             	   nr += d[j][0];
             	   nc += d[j][1]; 
                }
-               if(flag) {
-            	   while(nr!=r || nc!=c) {
+               if(flag) {	// 바꿀 돌이 사이에 있다면
+            	   while(nr!=r || nc!=c) {	// 지금 위치에서 처음 놓은 돌까지 돌아가면서 색갈 바꾸기 
             		   nr -= d[j][0];
                 	   nc -= d[j][1];
                 	   map[nr][nc] = color;
